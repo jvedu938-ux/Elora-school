@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Elora International School</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #ecf0f5;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, .55);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #ffb703;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            margin-left: 28px;
+            transition: .3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #ffb703;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 100vh;
+
+            background:
+                linear-gradient(rgba(0, 0, 0, .55),
+                    rgba(0, 0, 0, .55)),
+                url("https://th.bing.com/th/id/R.29018332293f3c16fff5446e46802c8a?rik=AXnVnWSKnkG%2bGg&riu=http%3a%2f%2fwww.freerangekids.com%2fwp-content%2fuploads%2f2015%2f02%2fschool.jpg&ehk=SEdyfxrgTxtBQF9JPO77FcOgFRllF6p6kPypIQWchwk%3d&risl=1&pid=ImgRaw&r=0");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            position: relative;
+            text-align: center;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            line-height: 1.7;
+            margin-bottom: 35px;
+        }
+
+        /* ================= BUTTON ================= */
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: #ffb703;
+            color: #000;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 40px;
+            transition: .4s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            background: #fff;
+        }
+
+        /* ================= SECTION ================= */
+
+        section {
+            padding: 80px 8%;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 38px;
+            margin-bottom: 50px;
+            color: #0d3b66;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about video {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+        }
+
+        .about p {
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        /* ================= CARDS ================= */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+            transition: .4s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card h3 {
+            margin: 20px 0;
+            color: #0d3b66;
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        /* ================= STATS ================= */
+
+        .stats {
+            background: #0d3b66;
+            color: #fff;
+
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stat h2 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            color: #ffb703;
+        }
+
+        /* ================= GALLERY ================= */
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 15px;
+            transition: .4s;
+            cursor: pointer;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* ================= CTA ================= */
+
+        .cta {
+            background: linear-gradient(135deg, #0d3b66, #0066cc);
+            color: #fff;
+            text-align: center;
+            border-radius: 20px;
+            padding: 60px 30px;
+        }
+
+        .cta h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #081c2d;
+            color: #ddd;
+            text-align: center;
+            padding: 25px;
+            margin-top: 40px;
+        }
+
+        /* ================= IMAGE MODAL ================= */
+
+        #imageModal {
+            display: none;
+
+            position: fixed;
+            inset: 0;
+
+            background: rgba(0, 0, 0, .9);
+
+            justify-content: center;
+            align-items: center;
+
+            z-index: 2000;
+        }
+
+        #imageModal img {
+            max-width: 90%;
+            max-height: 85%;
+            border-radius: 15px;
+        }
+
+        #closeModal {
+            position: absolute;
+            top: 25px;
+            right: 40px;
+
+            color: white;
+            font-size: 40px;
+
+            cursor: pointer;
+        }
+
+        /* ================= HEADER SCROLL ================= */
+
+        .header-scroll {
+            background: rgba(13, 59, 102, .95);
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media(max-width:768px) {
+
+            header {
+                padding: 15px 20px;
+                flex-direction: column;
+            }
+
+            nav {
+                margin-top: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .title {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header id="header">
+
+        <a href="#" class="logo">
+            Elora <span>School</span>
+        </a>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#facilities">Facilities</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <h1>Welcome To Elora International School</h1>
+
+            <p>
+                Empowering young minds through academic excellence,
+                innovation, leadership, creativity, sports and values
+                that inspire lifelong success.
+            </p>
+
+            <a href="#about" class="btn">
+                Explore More
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section id="about">
+
+        <h2 class="title">
+            About Our School
+        </h2>
+
+        <div class="about">
+
+            <video
+                src="mixkit-students-walking-in-a-university-4519-hd-ready.mp4"
+                muted
+                loop
+                autoplay>
+            </video>
+
+            <div>
+
+                <p id="para">
+
+                    Elora International School provides world-class
+                    education with modern classrooms, experienced faculty,
+                    smart learning, digital labs, sports facilities and
+                    personality development programs.
+
+                    <br><br>
+
+                    Our mission is to prepare students to become confident,
+                    creative and responsible global citizens.
+
+                </p>
+
+                <br>
+
+                <button
+                    id="unique"
+                    class="btn">
+                    Read More
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FACILITIES ================= -->
+
+    <section id="facilities">
+
+        <h2 class="title">
+            Why Choose Us
+        </h2>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>📚 Smart Classrooms</h3>
+
+                <img
+                    src="https://cdn.prod.website-files.com/66da8463f581814692709dcc/68d4d27b3f0953ab7683a144_Gemini_Generated_Image_sb5nvzsb5nvzsb5n.png">
+
+                <p>
+                    Interactive digital learning with modern
+                    teaching methods.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>🏆 Sports Excellence</h3>
+
+                <img
+                    src="https://srt10dyp.com/wp-content/uploads/2023/06/14-min-1024x689.jpg">
+
+                <p>
+                    Professional coaching and national-level
+                    sports facilities.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>💻 Computer Labs</h3>
+
+                <img
+                    src="https://static.vecteezy.com/system/resources/thumbnails/041/955/198/small_2x/ai-generated-portrait-of-a-smiling-schoolgirl-using-laptop-in-classroom-at-school-photo.jpg">
+
+                <p>
+                    Advanced technology labs for coding
+                    and innovation.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>🎨 Creativity</h3>
+
+                <img
+                    src="https://admin.ssrvm.org/uploads/transforming_classrooms_with_creative_learning_7e6bc71d8f.png">
+
+                <p>
+                    Music, dance, drama, robotics and art clubs.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= STATS ================= -->
+
+    <section class="stats">
+
+        <div class="stat">
+
+            <h2 class="count" data-target="2500">
+                0
+            </h2>
+
+            <p>Students</p>
+
+        </div>
+
+
+        <div class="stat">
+
+            <h2 class="count" data-target="180">
+                0
+            </h2>
+
+            <p>Teachers</p>
+
+        </div>
+
+
+        <div class="stat">
+
+            <h2 class="count" data-target="40">
+                0
+            </h2>
+
+            <p>Labs & Activities</p>
+
+        </div>
+
+
+        <div class="stat">
+
+            <h2 class="count" data-target="100">
+                0
+            </h2>
+
+            <p>Success Rate %</p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= GALLERY ================= -->
+
+    <section id="gallery">
+
+        <h2 class="title">
+            Campus Gallery
+        </h2>
+
+        <div class="gallery">
+
+            <img src="https://images.squarespace-cdn.com/content/v1/67b404680331987d59021537/1739850857664-P8V221G4SPQNZ3OI9QYW/slider-01.jpg?format=2500w">
+
+            <img src="https://th.bing.com/th/id/R.7dda5d851b3851dd01f5a15ad29ec1a9?rik=1jiAmVmfB4Zquw&riu=http%3a%2f%2fsamaritanschool.com%2fassets%2fimg%2flate_upl%2f5_image.jpg&ehk=n4VUsXN7OwqS29rhWM1KpBX4xOLTr6rw%2bzvGANpSTxg%3d&risl=&pid=ImgRaw&r=0">
+
+            <img src="https://tse3.mm.bing.net/th/id/OIP.H00ltZxFsUnfnwojmGpM5QHaEI?r=0&rs=1&pid=ImgDetMain&o=7&rm=3">
+
+            <img src="https://th.bing.com/th/id/R.29018332293f3c16fff5446e46802c8a?rik=AXnVnWSKnkG%2bGg&riu=http%3a%2f%2fwww.freerangekids.com%2fwp-content%2fuploads%2f2015%2f02%2fschool.jpg&ehk=SEdyfxrgTxtBQF9JPO77FcOgFRllF6p6kPypIQWchwk%3d&risl=1&pid=ImgRaw&r=0">
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <section id="contact">
+
+        <div class="cta">
+
+            <h2>
+                Admissions Open 2026-27
+            </h2>
+
+            <p style="margin:20px 0;font-size:18px;">
+
+                Join a vibrant learning community that nurtures
+                excellence, innovation and leadership.
+
+            </p>
+
+            <button
+                class="btn"
+                id="applyBtn">
+
+                Apply Now
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <h3>
+            Elora International School
+        </h3>
+
+        <p>
+            📍 Indore, Madhya Pradesh
+        </p>
+
+        <p>
+            📞 +91 98765 43210
+        </p>
+
+        <p>
+            ✉️ info@eloraschool.edu
+        </p>
+
+        <br>
+
+        <p>
+            © 2026 Elora International School.
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- ================= IMAGE MODAL ================= -->
+
+    <div id="imageModal">
+
+        <span id="closeModal">
+            &times;
+        </span>
+
+        <img id="modalImage">
+
+    </div>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        /* =========================================
+           1. READ MORE / SHOW LESS
+        ========================================= */
+
+        const para = document.getElementById("para");
+        const unique = document.getElementById("unique");
+
+        const shortText = `
+            Elora International School provides world-class education
+            with modern classrooms, experienced faculty, smart learning,
+            digital labs, sports facilities and personality development
+            programs.
+
+            <br><br>
+
+            Our mission is to prepare students to become confident,
+            creative and responsible global citizens.
+        `;
+
+        const longText = `
+            Welcome to our school, a place where learning, creativity,
+            and character come together to shape the leaders of tomorrow.
+
+            <br><br>
+
+            Since its establishment, our institution has been dedicated
+            to providing quality education in a safe, supportive, and
+            inspiring environment.
+
+            <br><br>
+
+            We believe that every child possesses unique talents and
+            abilities, and our mission is to nurture those strengths
+            while encouraging curiosity, confidence, and lifelong learning.
+
+            <br><br>
+
+            Our school offers a balanced curriculum that combines
+            academic excellence with extracurricular activities,
+            ensuring the holistic development of every student.
+
+            <br><br>
+
+            Students are encouraged to participate in sports, cultural
+            events, science exhibitions, debates, music, dance and
+            community service programs.
+
+            <br><br>
+
+            We are proud to have a team of highly qualified, experienced
+            and dedicated teachers who are passionate about inspiring
+            young minds.
+        `;
+
+
+        unique.addEventListener("click", function () {
+
+            if (unique.innerText === "Read More") {
+
+                para.innerHTML = longText;
+
+                unique.innerText = "Show Less";
+
+            } else {
+
+                para.innerHTML = shortText;
+
+                unique.innerText = "Read More";
+
+            }
+
+        });
+
+
+        /* =========================================
+           2. COUNTER ANIMATION
+        ========================================= */
+
+        const counters = document.querySelectorAll(".count");
+
+        let counterStarted = false;
+
+
+        function startCounters() {
+
+            if (counterStarted) {
+                return;
+            }
+
+            counterStarted = true;
+
+
+            counters.forEach(function (counter) {
+
+                const target = Number(
+                    counter.getAttribute("data-target")
+                );
+
+                let current = 0;
+
+                const increment = target / 100;
+
+
+                function updateCounter() {
+
+                    current += increment;
+
+
+                    if (current < target) {
+
+                        counter.innerText =
+                            Math.ceil(current);
+
+                        setTimeout(updateCounter, 20);
+
+                    } else {
+
+                        counter.innerText = target;
+
+                    }
+
+                }
+
+
+                updateCounter();
+
+            });
+
+        }
+
+
+        /* =========================================
+           3. START COUNTER WHEN USER SCROLLS
+        ========================================= */
+
+        window.addEventListener("scroll", function () {
+
+            const stats = document.querySelector(".stats");
+
+            const position =
+                stats.getBoundingClientRect().top;
+
+            const screenHeight =
+                window.innerHeight;
+
+
+            if (position < screenHeight - 100) {
+
+                startCounters();
+
+            }
+
+        });
+
+
+        /* =========================================
+           4. HEADER SCROLL EFFECT
+        ========================================= */
+
+        const header = document.getElementById("header");
+
+
+        window.addEventListener("scroll", function () {
+
+            if (window.scrollY > 50) {
+
+                header.classList.add("header-scroll");
+
+            } else {
+
+                header.classList.remove("header-scroll");
+
+            }
+
+        });
+
+
+        /* =========================================
+           5. GALLERY IMAGE MODAL
+        ========================================= */
+
+        const galleryImages =
+            document.querySelectorAll(".gallery img");
+
+        const imageModal =
+            document.getElementById("imageModal");
+
+        const modalImage =
+            document.getElementById("modalImage");
+
+        const closeModal =
+            document.getElementById("closeModal");
+
+
+        galleryImages.forEach(function (image) {
+
+            image.addEventListener("click", function () {
+
+                imageModal.style.display = "flex";
+
+                modalImage.src = image.src;
+
+            });
+
+        });
+
+
+        closeModal.addEventListener("click", function () {
+
+            imageModal.style.display = "none";
+
+        });
+
+
+        imageModal.addEventListener("click", function (event) {
+
+            if (event.target === imageModal) {
+
+                imageModal.style.display = "none";
+
+            }
+
+        });
+
+
+        /* =========================================
+           6. APPLY NOW BUTTON
+        ========================================= */
+
+        const applyBtn =
+            document.getElementById("applyBtn");
+
+
+        applyBtn.addEventListener("click", function () {
+
+            alert(
+                "Thank you for your interest in Elora International School!\n\nAdmissions for 2026-27 are open."
+            );
+
+        });
+
+
+        /* =========================================
+           7. ESC KEY CLOSE IMAGE
+        ========================================= */
+
+        document.addEventListener("keydown", function (event) {
+
+            if (event.key === "Escape") {
+
+                imageModal.style.display = "none";
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>
